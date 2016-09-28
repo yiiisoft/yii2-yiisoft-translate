@@ -11,15 +11,21 @@ use Yii;
 
 /**
  * Controller is the base class for classes containing controller logic.
+ * Controller 是包含控制器逻辑的类的基类
  *
  * @property Module[] $modules All ancestor modules that this controller is located within. This property is
  * read-only.
+ * 是所有控制器的祖先。这个属性是只读的。
  * @property string $route The route (module ID, controller ID and action ID) of the current request. This
  * property is read-only.
+ * 当前请求的路由（模块ID，控制器ID，行为ID），只读
  * @property string $uniqueId The controller ID that is prefixed with the module ID (if any). This property is
  * read-only.
+ * 控制器前缀的ID模块ID(如果有的话)，只读
  * @property View|\yii\web\View $view The view object that can be used to render views or view files.
+ * 视图对象可以用来渲染视图或视图文件
  * @property string $viewPath The directory containing the view files for this controller.
+ * 该目录包含着控制器的视图文件
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
@@ -28,16 +34,19 @@ class Controller extends Component implements ViewContextInterface
 {
     /**
      * @event ActionEvent an event raised right before executing a controller action.
+     * ActionEvent事件之前执行一个控制器 action
      * You may set [[ActionEvent::isValid]] to be false to cancel the action execution.
+     * 你可以设置 [[ActionEvent:isValid]] 为 false 来取消 action 执行。
      */
     const EVENT_BEFORE_ACTION = 'beforeAction';
     /**
      * @event ActionEvent an event raised right after executing a controller action.
+     * ActionEvent事件后执行一个控制器 action
      */
     const EVENT_AFTER_ACTION = 'afterAction';
 
     /**
-     * @var string the ID of this controller.
+     * @var string the ID of this controller.  控制器ID
      */
     public $id;
     /**
@@ -46,28 +55,32 @@ class Controller extends Component implements ViewContextInterface
     public $module;
     /**
      * @var string the ID of the action that is used when the action ID is not specified
-     * in the request. Defaults to 'index'.
+     * in the request. Defaults to 'index'.  当请求中没有指定 action ID 时，默认到 `index`
      */
     public $defaultAction = 'index';
     /**
-     * @var null|string|boolean the name of the layout to be applied to this controller's views.
-     * This property mainly affects the behavior of [[render()]].
+     * @var null|string|boolean the name of the layout to be applied to this controller's views.  该控制器的视图布局名称
+     * This property mainly affects the behavior of [[render()]].  此属性主要影响的行为 [[render()]]
      * Defaults to null, meaning the actual layout value should inherit that from [[module]]'s layout value.
-     * If false, no layout will be applied.
+     * 默认为零,这意味着实际布局值应该从 [[module]] 布局值继承
+     * If false, no layout will be applied.  如果是 false ,没有布局将被应用
      */
     public $layout;
     /**
      * @var Action the action that is currently being executed. This property will be set
      * by [[run()]] when it is called by [[Application]] to run an action.
+     * 目前正在执行的 action。当通过 [[Application]] 来运行一个 action 时，该属性将被 [[run()]] 设置
      */
     public $action;
 
     /**
      * @var View the view object that can be used to render views or view files.
+     * 视图对象可以用来渲染视图或视图文件
      */
     private $_view;
     /**
      * @var string the root directory that contains view files for this controller.
+     * 包含该控制器视图文件的目录
      */
     private $_viewPath;
 

@@ -75,7 +75,7 @@ class Controller extends Component implements ViewContextInterface
 
     /**
      * @var View the view object that can be used to render views or view files.
-     * 视图对象可以用来渲染视图或视图文件
+     * 可以用来渲染视图或视图文件的视图对象
      */
     private $_view;
     /**

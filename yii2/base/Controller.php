@@ -86,8 +86,8 @@ class Controller extends Component implements ViewContextInterface
 
 
     /**
-     * @param string $id the ID of this controller.
-     * @param Module $module the module that this controller belongs to.
+     * @param string $id the ID of this controller.  控制器 ID
+     * @param Module $module the module that this controller belongs to.  属于该控制器的模块
      * @param array $config name-value pairs that will be used to initialize the object properties.
      */
     public function __construct($id, $module, $config = [])
@@ -98,9 +98,10 @@ class Controller extends Component implements ViewContextInterface
     }
 
     /**
-     * Declares external actions for the controller.
-     * This method is meant to be overwritten to declare external actions for the controller.
+     * Declares external actions for the controller.  声明额外的 action
+     * This method is meant to be overwritten to declare external actions for the controller.  这个方法是重写声明外部行为的控制器
      * It should return an array, with array keys being action IDs, and array values the corresponding
+     * 它应该返回一个数组,数组键操作id,并相关联的数组值
      * action class names or action configuration arrays. For example,
      *
      * ```php
@@ -124,9 +125,13 @@ class Controller extends Component implements ViewContextInterface
 
     /**
      * Runs an action within this controller with the specified action ID and parameters.
+     * 运行一个动作在这个控制器使用ID和指定的操作参数
      * If the action ID is empty, the method will use [[defaultAction]].
+     * 如果行动ID为空,该方法将使用 [[defaultAction]]
      * @param string $id the ID of the action to be executed.
+     * 要执行的动作的ID
      * @param array $params the parameters (name-value pairs) to be passed to the action.
+     * (键值对)的参数传递到 action
      * @return mixed the result of the action.
      * @throws InvalidRouteException if the requested action ID cannot be resolved into an action successfully.
      * @see createAction()

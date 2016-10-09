@@ -9,11 +9,14 @@ namespace yii\base;
 
 /**
  * ActionFilter is the base class for action filters.
+ * 是所有动作过滤器的基类
  *
  * An action filter will participate in the action execution workflow by responding to
  * the `beforeAction` and `afterAction` events triggered by modules and controllers.
+ * 一个行动过滤器将参与行动执行工作流的回应“beforeAction”和“afterAction”事件引发的模块和控制
  *
  * Check implementation of [[\yii\filters\AccessControl]], [[\yii\filters\PageCache]] and [[\yii\filters\HttpCache]] as examples on how to use it.
+ * 检查如何实现 [[\yii\filters\AccessControl]], [[\yii\filters\PageCache]] 和 [[\yii\filters\HttpCache]]
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
@@ -23,16 +26,20 @@ class ActionFilter extends Behavior
     /**
      * @var array list of action IDs that this filter should apply to. If this property is not set,
      * then the filter applies to all actions, unless they are listed in [[except]].
+     * 在该数组中的 action IDs 会被接受，如果该属性没有设置则会接受所有的 action。除非他们在 [[except]] 中
      * If an action ID appears in both [[only]] and [[except]], this filter will NOT apply to it.
+     * 如果一个 action ID 同时在 [[only]] 和 [[except]], 该过滤器不会接受它
      *
      * Note that if the filter is attached to a module, the action IDs should also include child module IDs (if any)
      * and controller IDs.
+     * 注意,如果过滤器是附加到模块,action IDs 还应该包括子模块 IDs(如果有的话)和控制器 IDs
      *
      * @see except
      */
     public $only;
     /**
      * @var array list of action IDs that this filter should not apply to.
+     * 该数组中的 action IDs 不会被过滤器接受
      * @see only
      */
     public $except = [];
